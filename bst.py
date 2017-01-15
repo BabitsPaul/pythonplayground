@@ -1,5 +1,5 @@
 class BstNode:
-    def __init__(self, value, left = None, right = None):
+    def __init__(self, value, left=None, right=None):
         self.value = value
         self.right = right
         self.left = left
@@ -11,12 +11,12 @@ class BstNode:
         print(indent, self.value, "\t", self)
         nindent = indent + "\t"
 
-        if not self.left is None:
+        if self.left is not None:
             self.left.print(nindent)
         else:
             print(nindent, "none")
 
-        if not self.right is None:
+        if self.right is not None:
             self.right.print(nindent)
         else:
             print(nindent, "none")
@@ -33,17 +33,18 @@ def bst_copy(bst):
     while stack:
         n = stack.pop()
 
-        if not n.left is None:
+        if n.left is not None:
             n.left = n.left.shallow_clone()
             stack.append(n.left)
 
-        if not n.right is None:
+        if n.right is not None:
             n.right = n.right.shallow_clone()
             stack.append(n.right)
 
     return root
 
-root = BstNode(3,
+
+tree = BstNode(3,
                BstNode(4,
                        BstNode(5),
                        BstNode(2)),
@@ -51,6 +52,6 @@ root = BstNode(3,
                        BstNode(7),
                        BstNode(9)))
 
-root.print("")
+tree.print("")
 print("\n\n")
-bst_copy(root).print("")
+bst_copy(tree).print("")
