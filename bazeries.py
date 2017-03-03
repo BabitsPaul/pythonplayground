@@ -5,10 +5,10 @@ from spellout import spellout
 
 def polybius(key: int =None):
     if key is None:
-        #create table
+        # create table
         poly = [[chr(x + ord('A')) for x in range(i * 5, (i + 1) * 5)] for i in range(0, 2)] + \
                [[chr(x + ord('A')) for x in range(i * 5 + 1, (i + 1) * 5 + 1)] for i in range(2, 5)]
-        poly[1][4] = 'K' # override last character in second row, as i and j are grouped together
+        poly[1][4] = 'K'  # override last character in second row, as i and j are grouped together
 
         # reorder
         zip(poly)
@@ -35,7 +35,7 @@ def polybius(key: int =None):
 
 def encrypt(plaintext: str, key: int):
     if key < 0:
-        raise "Invalid key " + key
+        raise "Invalid key " + str(key)
 
     # build table of characters to replace
     table = dict(zip([p for row in polybius() for p in row],
@@ -49,7 +49,7 @@ def encrypt(plaintext: str, key: int):
 
 def decrypt(ciphertext: str, key: int):
     if key < 0:
-        raise "Invalid key " + key
+        raise "Invalid key " + str(key)
 
     # lookup table
     table = dict(zip([p for row in polybius(key) for p in row],
