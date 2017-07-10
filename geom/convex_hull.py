@@ -7,7 +7,8 @@ def slow_convex_hull(p):
 
     for i in range(0, len(p)):
         for j in range(0, len(p)):
-            if i == j: continue
+            if i == j:
+                continue
 
             valid = True
 

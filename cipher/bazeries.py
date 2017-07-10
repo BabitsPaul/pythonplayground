@@ -1,6 +1,6 @@
 from collections import OrderedDict
 
-from spellout import spellout
+from cipher.spellout import spellout
 
 
 def polybius(key: int =None):

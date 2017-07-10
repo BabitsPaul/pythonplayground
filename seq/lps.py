@@ -32,7 +32,7 @@ def least_partitioning_sum_k(l, k):
             self.max = m
 
         def __lt__(self, other):
-            return other.index < self.index
+            return other.get_index < self.index
 
     # shortest path search
     q = Queue()
@@ -43,9 +43,9 @@ def least_partitioning_sum_k(l, k):
     while not q.empty():
         n = q.get_nowait()
 
-        if visited[n.index]:
+        if visited[n.get_index]:
             continue
-        visited[n.index] = True
+        visited[n.get_index] = True
 
         # try if we can close the set from here
         if acc[len(l) - 1] <= n.max:

@@ -15,7 +15,7 @@ def slice_polygon(poly, part):
         last_pt = pt
 
     # find slicing starting from border-point
-    a = poly.index(last_pt)
+    a = poly.get_index(last_pt)
     b = (a + 1) % len(poly) # current positions on the polygon
     sliced_poly = []    # current polygon
     slicing = []    # list of all polygons that are created by the slicing
